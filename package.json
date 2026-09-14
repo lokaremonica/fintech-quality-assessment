@@ -1,0 +1,27 @@
+{
+  "name": "fintech-quality-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API and UI quality automation for a self-contained fintech demo",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "npm run build && node build/mock/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "test:api": "playwright test --project=api",
+    "test:ui": "playwright test --project=ui-chromium",
+    "test:ui:trace": "playwright test --project=ui-chromium --headed --workers=1 --trace=on",
+    "test:ui:debug": "playwright test --project=ui-chromium --debug --trace=on",
+    "test:diagnostics": "node scripts/verify-diagnostics.cjs",
+    "report": "playwright show-report",
+    "verify": "npm run typecheck && npm test"
+  },
+  "dependencies": { "express": "5.2.1" },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/express": "5.0.6",
+    "@types/node": "22.19.19",
+    "typescript": "5.9.3"
+  }
+}

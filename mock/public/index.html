@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ledger · Transfer demo</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Ledger home"><span class="brand-icon">L</span> Ledger</a><span class="badge">Demo environment</span></header>
+  <main>
+    <p class="eyebrow">YOUR MONEY, IN MOTION</p>
+    <h1>A simpler way to send.</h1>
+    <p class="intro">Create an account and record your first transfer. This demo uses simulated transactions; no money moves.</p>
+    <div class="grid">
+      <section class="card" aria-labelledby="register-heading">
+        <div class="section-heading"><span class="step">01</span><h2 id="register-heading">Create your account</h2></div>
+        <form id="registration-form" novalidate>
+          <label for="name">Full name</label><input id="name" name="name" autocomplete="name" required placeholder="Alex Morgan">
+          <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="alex@example.com">
+          <label for="accountType">Account type</label><select id="accountType" name="accountType"><option value="standard">Standard</option><option value="premium">Premium</option></select>
+          <button type="submit">Create account <span aria-hidden="true">→</span></button>
+          <p id="registration-error" class="error" role="alert" hidden></p>
+          <p id="registration-success" class="success" role="status" hidden></p>
+        </form>
+      </section>
+      <section class="card" aria-labelledby="transfer-heading">
+        <div class="section-heading"><span class="step">02</span><h2 id="transfer-heading">Make a transfer</h2></div>
+        <div class="account-note"><span class="dot"></span><span id="session-status">Create an account to start sending.</span></div>
+        <form id="transfer-form" novalidate>
+          <label for="recipientId">Recipient account ID</label><input id="recipientId" name="recipientId" required placeholder="Enter an existing account ID" aria-describedby="recipient-help">
+          <small id="recipient-help">Use the account ID of another demo user.</small>
+          <label for="amount">Amount</label><div class="amount-field"><span aria-hidden="true">$</span><input id="amount" name="amount" type="number" inputmode="decimal" step="0.01" min="0.01" required placeholder="0.00" aria-describedby="amount-help"></div>
+          <small id="amount-help">USD · Minimum $0.01 · Two decimal places</small>
+          <button id="send-button" type="submit" disabled>Send transfer <span aria-hidden="true">↗</span></button>
+          <p id="transfer-error" class="error" role="alert" hidden></p>
+          <p id="transfer-success" class="success" role="status" hidden></p>
+        </form>
+      </section>
+    </div>
+    <section id="account-details" class="account-details" hidden aria-label="Your account"><div><p class="eyebrow">YOUR ACCOUNT ID</p><p id="account-id" class="mono"></p></div><p class="account-hint">Share this ID with another demo user to receive a transfer.</p></section>
+    <footer>Quality engineering assessment <span>Simulated accounts · Simulated transfers</span></footer>
+  </main>
+</body>
+</html>

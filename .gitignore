@@ -1,0 +1,10 @@
+node_modules/
+build/
+playwright-report/
+test-results/
+diagnostic-report/
+diagnostic-results/
+.env
+*.log
+.DS_Store
+submission.zip
